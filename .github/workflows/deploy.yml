@@ -25,6 +25,7 @@ jobs:
 
     - name: Dry-run apply Kubernetes manifests
       run: |
+        ls -la && pwd
         echo "Validating ./deploy_manual_componenets"
         kubectl apply --dry-run=client -f deploy_manual_componenets/deploy.yaml
 
