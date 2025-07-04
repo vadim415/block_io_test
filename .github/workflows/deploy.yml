@@ -1,11 +1,11 @@
 # name: Testing
 
 on:
-  workflow_call:
-  # push:
-  #   branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
+ 
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   default:
