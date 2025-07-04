@@ -7,18 +7,20 @@ on:
     branches: [ "main" ]
 
 jobs:
-  validate-deploy:
-    runs-on: ubuntu-22.04
+  default:
+    runs-on: self-hosted
+  #validate-deploy:
+  #  runs-on: ubuntu-22.04
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    - name: Install Helm
-      uses: azure/setup-helm@v4.3.0
-    - name: Install kubectl
-      uses: azure/setup-kubectl@v4.0.1
-      with:
-        version: 'v1.33.1'
+    # - name: Checkout repository
+    #   uses: actions/checkout@v4
+    # - name: Install Helm
+    #   uses: azure/setup-helm@v4.3.0
+    # - name: Install kubectl
+    #   uses: azure/setup-kubectl@v4.0.1
+    #   with:
+    #     version: 'v1.33.1'
 
     - name: Dry-run apply Kubernetes manifests
       run: |
