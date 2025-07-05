@@ -22,6 +22,8 @@ jobs:
     #   uses: azure/setup-kubectl@v4.0.1
     #   with:
     #     version: 'v1.33.1'
+    - name: Checkout repository
+      uses: actions/checkout@v3      
     - name: List files and show cwd
       run: |
         ls -la && pwd
