@@ -10,23 +10,13 @@ on:
 jobs:
   default:
     runs-on: self-hosted
-  #validate-deploy:
-  #  runs-on: ubuntu-22.04
 
     steps:
-    # - name: Checkout repository
-    #   uses: actions/checkout@v4
-    # - name: Install Helm
-    #   uses: azure/setup-helm@v4.3.0
-    # - name: Install kubectl
-    #   uses: azure/setup-kubectl@v4.0.1
-    #   with:
-    #     version: 'v1.33.1'
-     - name: Set KUBECONFIG
-       run: |
+    - name: Set KUBECONFIG
+      run: |
           # міняємо на шлях до вашого конфігу, якщо відрізняється
-         export KUBECONFIG=$HOME/.kube/config
-         kubectl config use-context minikube
+        export KUBECONFIG=$HOME/.kube/config
+        kubectl config use-context minikube
     - name: Checkout repository
       uses: actions/checkout@v3      
     - name: List files and show cwd
