@@ -22,6 +22,11 @@ jobs:
     #   uses: azure/setup-kubectl@v4.0.1
     #   with:
     #     version: 'v1.33.1'
+     - name: Set KUBECONFIG
+       run: |
+          # міняємо на шлях до вашого конфігу, якщо відрізняється
+         export KUBECONFIG=$HOME/.kube/config
+         kubectl config use-context minikube
     - name: Checkout repository
       uses: actions/checkout@v3      
     - name: List files and show cwd
