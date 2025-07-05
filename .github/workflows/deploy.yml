@@ -22,17 +22,19 @@ jobs:
     #   uses: azure/setup-kubectl@v4.0.1
     #   with:
     #     version: 'v1.33.1'
+    - name: List files and show cwd
+      run: |
+        ls -la && pwd
 
     - name: Dry-run apply Kubernetes manifests
       run: |
-        ls -la && pwd
         echo "Validating ./deploy_manual_componenets"
-        kubectl apply --dry-run=client -f deploy_manual_componenets/deploy.yaml
+        kubectl apply --dry-run=client -f ./deploy_manual_componenets/deploy.yaml
 
     - name: Validate ServiceMonitor prom-stack
       run: |
         echo "Validating deploy_manual_componenets/service_monitor_prom.yaml"
-        kubectl apply --dry-run=client -f deploy_manual_componenets/service_monitor_prom.yaml
+        kubectl apply --dry-run=client -f ./deploy_manual_componenets/service_monitor_prom.yaml
 
     - name:  Validate Kubernetes secrets/configs
       run: |
