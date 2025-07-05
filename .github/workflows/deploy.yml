@@ -10,11 +10,16 @@ on:
 jobs:
   validate:                    
     runs-on: self-hosted
+    env:
+      KUBECONFIG: /home/vadim/.kube/config
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+      - name: Verify cluster connectivity
+        run: |
+          # показує info про кластер (має повернути URL вашого minikube)
+          kubectl cluster-info
       - name: Set KUBECONFIG
         run: |
           export KUBECONFIG=$HOME/.kube/config
